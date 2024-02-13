@@ -1,7 +1,6 @@
 package com.jhoangamarral.ticketmasterchallenge.presentation.entities
 
 sealed class EventListItem {
-
     data class Event(
         val id: String,
         val title: String,

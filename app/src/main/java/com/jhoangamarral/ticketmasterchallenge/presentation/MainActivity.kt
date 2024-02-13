@@ -8,6 +8,8 @@ import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.jhoangamarral.ticketmasterchallenge.presentation.navigation.Page
+import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.LocalViewModelStore
+import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.ViewModelStore
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.feed.feedScreen
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.search.searchScreen
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.theme.AppTheme

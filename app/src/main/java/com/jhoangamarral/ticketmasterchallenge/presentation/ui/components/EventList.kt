@@ -39,7 +39,7 @@ fun EventList(
     LazyColumn(
         Modifier
             .fillMaxSize()
-            .padding(top = 20.dp, bottom = 20.dp),
+            .padding(10.dp),
         verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
         items(events.itemCount) { index ->
@@ -59,15 +59,14 @@ private fun EventItem(
     Card(
         elevation = CardDefaults.cardElevation(),
         modifier = Modifier
-            .fillMaxSize()
-            .width(80.dp),
+            .fillMaxSize(),
         shape = RoundedCornerShape(5.dp)
     ) {
         Row(Modifier.fillMaxSize()) {
             Column(
                 Modifier
                     .weight(1f)
-                    .padding(top = 10.dp),
+                    .padding(top = 10.dp, end = 10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 SubcomposeAsyncImage(
@@ -85,7 +84,7 @@ private fun EventItem(
             Column(
                 modifier = Modifier
                     .weight(2f)
-                    .padding(vertical = 5.dp)
+                    .padding(vertical = 10.dp)
             ) {
                 Text(
                     text = event.title,
@@ -94,7 +93,9 @@ private fun EventItem(
                     overflow = TextOverflow.Visible,
                     maxLines = 4
                 )
+                Spacer(modifier = Modifier.padding(10.dp))
                 Text(text = event.startDate ?: "empty startDate", color = Color.Gray)
+                Spacer(modifier = Modifier.padding(5.dp))
                 Text(text = event.venue ?: "empty venue", color = Color.Gray)
             }
         }
@@ -124,17 +125,6 @@ private class ImageSize(
             return ImageSize(imageWidth, imageHeight)
         }
     }
-}
-
-/**
- * @property gridSpanSize - The total number of columns in the grid.
- * @property separatorColumnSpanSize - Returns the number of columns that the item occupies.
- * @property footerColumnSpanSize - Returns the number of columns that the item occupies.
- **/
-data class EventSpanSizeConfig(val gridSpanSize: Int) {
-    val eventColumnSpanSize: Int = 1
-    val separatorColumnSpanSize: Int = gridSpanSize
-    val footerColumnSpanSize: Int = gridSpanSize
 }
 
 @Preview("Light")

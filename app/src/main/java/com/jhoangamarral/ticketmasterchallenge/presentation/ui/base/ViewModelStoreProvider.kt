@@ -1,4 +1,4 @@
-package com.jhoangamarral.ticketmasterchallenge.presentation
+package com.jhoangamarral.ticketmasterchallenge.presentation.ui.base
 
 import androidx.compose.runtime.staticCompositionLocalOf
 

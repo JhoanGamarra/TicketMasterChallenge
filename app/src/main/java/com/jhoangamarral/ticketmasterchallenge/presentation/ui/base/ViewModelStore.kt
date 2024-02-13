@@ -1,4 +1,4 @@
-package com.jhoangamarral.ticketmasterchallenge.presentation
+package com.jhoangamarral.ticketmasterchallenge.presentation.ui.base
 
 import androidx.collection.LruCache
 import androidx.lifecycle.ViewModel

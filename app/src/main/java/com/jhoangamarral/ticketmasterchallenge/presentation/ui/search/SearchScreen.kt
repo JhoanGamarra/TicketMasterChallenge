@@ -49,7 +49,6 @@ fun NavGraphBuilder.searchScreen() = composable(route = Page.Search.route) {
 
 }
 
-
 @Composable
 fun SearchScreen(
     searchUiState: SearchViewModel.SearchUiState,

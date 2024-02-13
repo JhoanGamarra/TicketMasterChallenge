@@ -3,8 +3,6 @@ package com.jhoangamarral.ticketmasterchallenge.presentation.ui.feed
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.LazyGridState
-import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -38,10 +36,6 @@ fun NavGraphBuilder.feedScreen() = composable(route = Page.Feed.route) {
 
     LaunchedEffect(key1 = eventsPaging.loadState) {
         feedViewModel.onLoadStateUpdate(eventsPaging.loadState)
-    }
-
-    LaunchedEffect(key1 = networkState) {
-//        networkState?.let { if (it.isAvailable()) eventsPaging.refresh() }
     }
 
     FeedScreen(eventsPaging, uiState)

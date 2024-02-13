@@ -8,7 +8,6 @@ import com.jhoangamarral.ticketmasterchallenge.domain.usecases.SearchEvents
 import com.jhoangamarral.ticketmasterchallenge.presentation.entities.EventListItem
 import com.jhoangamarral.ticketmasterchallenge.presentation.mapper.toPresentation
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.BaseViewModel
-import com.jhoangamarral.ticketmasterchallenge.presentation.util.singleSharedFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -29,10 +28,6 @@ class SearchViewModel @Inject constructor(
         val errorMessage: String? = null
     )
 
-    sealed class NavigationState {
-        data class EventDetails(val eventId: Int) : NavigationState()
-    }
-
     @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
     var events: Flow<PagingData<EventListItem>> = savedStateHandle.getStateFlow(KEY_SEARCH_QUERY, "")
         .onEach { query ->
@@ -49,17 +44,9 @@ class SearchViewModel @Inject constructor(
     private val _uiState: MutableStateFlow<SearchUiState> = MutableStateFlow(SearchUiState())
     val uiState = _uiState.asStateFlow()
 
-    private val _navigationState: MutableSharedFlow<NavigationState> = singleSharedFlow()
-    val navigationState = _navigationState.asSharedFlow()
-
     fun onSearch(query: String) {
         savedStateHandle[KEY_SEARCH_QUERY] = query
     }
-
-    fun onEventClicked(eventId: Int) =
-        _navigationState.tryEmit(NavigationState.EventDetails(eventId))
-
-    fun getSearchQuery(): CharSequence? = savedStateHandle.get<String>(KEY_SEARCH_QUERY)
 
     fun onLoadStateUpdate(loadState: CombinedLoadStates, itemCount: Int) {
         val showLoading = loadState.refresh is LoadState.Loading
