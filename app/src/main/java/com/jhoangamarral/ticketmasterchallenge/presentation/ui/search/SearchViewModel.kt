@@ -3,8 +3,8 @@ package com.jhoangamarral.ticketmasterchallenge.presentation.ui.search
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import com.jhoangamarral.ticketmasterchallenge.data.util.DispatchersProvider
-import com.jhoangamarral.ticketmasterchallenge.domain.usecases.SearchEvents
+import com.jhoangamarral.data.util.DispatchersProvider
+import com.jhoangamarral.domain.usecases.SearchEvents
 import com.jhoangamarral.ticketmasterchallenge.presentation.entities.EventListItem
 import com.jhoangamarral.ticketmasterchallenge.presentation.mapper.toPresentation
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.BaseViewModel
@@ -16,9 +16,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val searchEvents: SearchEvents,
+    private val searchEvents: com.jhoangamarral.domain.usecases.SearchEvents,
     private val savedStateHandle: SavedStateHandle,
-    dispatchers: DispatchersProvider
+    dispatchers: com.jhoangamarral.data.util.DispatchersProvider
 ) : BaseViewModel(dispatchers) {
 
     data class SearchUiState(

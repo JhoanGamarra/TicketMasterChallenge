@@ -1,6 +1,6 @@
 package com.jhoangamarral.ticketmasterchallenge.presentation.mapper
 
-import com.jhoangamarral.ticketmasterchallenge.domain.entities.EventEntity
+import com.jhoangamarral.domain.entities.EventEntity
 import com.jhoangamarral.ticketmasterchallenge.presentation.entities.EventListItem
 
 fun EventEntity.toPresentation() = EventListItem.Event(

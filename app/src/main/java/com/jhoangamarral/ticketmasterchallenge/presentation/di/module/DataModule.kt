@@ -1,11 +1,12 @@
 package com.jhoangamarral.ticketmasterchallenge.presentation.di.module
 
-import com.jhoangamarral.ticketmasterchallenge.data.api.EventApi
-import com.jhoangamarral.ticketmasterchallenge.data.db.events.EventDao
-import com.jhoangamarral.ticketmasterchallenge.data.db.events.EventRemoteKeyDao
-import com.jhoangamarral.ticketmasterchallenge.data.repository.*
-import com.jhoangamarral.ticketmasterchallenge.data.util.DiskExecutor
-import com.jhoangamarral.ticketmasterchallenge.domain.repository.EventRepository
+import com.jhoangamarral.data.api.EventApi
+import com.jhoangamarral.data.events.EventDao
+import com.jhoangamarral.data.events.EventRemoteKeyDao
+import com.jhoangamarral.data.repository.*
+import com.jhoangamarral.data.util.DiskExecutor
+import com.jhoangamarral.domain.repository.EventRepository
+import com.jhoangamarral.domain.usecases.SearchEvents
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,11 @@ class DataModule {
         eventLocal: EventDataSource.Local,
         eventRemoteMediator: EventRemoteMediator,
     ): EventRepository {
-        return EventRepositoryImpl(eventRemote, eventLocal, eventRemoteMediator)
+        return EventRepositoryImpl(
+            eventRemote,
+            eventLocal,
+            eventRemoteMediator
+        )
     }
 
     @Provides
@@ -33,7 +38,11 @@ class DataModule {
         eventDao: EventDao,
         eventRemoteKeyDao: EventRemoteKeyDao,
     ): EventDataSource.Local {
-        return EventLocalDatasource(executor, eventDao, eventRemoteKeyDao)
+        return EventLocalDatasource(
+            executor,
+            eventDao,
+            eventRemoteKeyDao
+        )
     }
 
     @Provides
@@ -42,7 +51,10 @@ class DataModule {
         eventLocalDataSource: EventDataSource.Local,
         eventRemoteDataSource: EventDataSource.Remote
     ): EventRemoteMediator {
-        return EventRemoteMediator(eventLocalDataSource, eventRemoteDataSource)
+        return EventRemoteMediator(
+            eventLocalDataSource,
+            eventRemoteDataSource
+        )
     }
 
     @Provides
@@ -50,5 +62,11 @@ class DataModule {
     fun provideEventRemoveDataSource(eventApi: EventApi): EventDataSource.Remote {
         return EventRemoteDatasource(eventApi)
     }
+
+    @Provides
+    fun provideSearchEventsUseCase(eventRepository: EventRepository): SearchEvents {
+        return SearchEvents(eventRepository)
+    }
+
 
 }

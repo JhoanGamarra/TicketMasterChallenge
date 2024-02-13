@@ -1,4 +1,4 @@
-package com.jhoangamarral.ticketmasterchallenge.presentation
+package com.jhoangamarral.ticketmasterchallenge.presentation.navigation
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.navigation.NavController
