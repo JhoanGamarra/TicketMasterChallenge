@@ -7,6 +7,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.jhoangamarral.ticketmasterchallenge.presentation.navigation.LocalNavControllerProvider
 import com.jhoangamarral.ticketmasterchallenge.presentation.navigation.Page
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.LocalViewModelStore
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.ViewModelStore

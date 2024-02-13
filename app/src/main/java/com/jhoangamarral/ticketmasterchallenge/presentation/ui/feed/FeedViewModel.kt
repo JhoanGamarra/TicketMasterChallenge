@@ -5,10 +5,10 @@ import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.jhoangamarral.ticketmasterchallenge.data.util.DispatchersProvider
-import com.jhoangamarral.ticketmasterchallenge.domain.usecases.GetEvents
+import com.jhoangamarral.data.util.DispatchersProvider
 import com.jhoangamarral.ticketmasterchallenge.presentation.entities.EventListItem
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.base.BaseViewModel
+import com.jhoangamarral.ticketmasterchallenge.presentation.ui.feed.usecase.GetEvents
 import com.jhoangamarral.ticketmasterchallenge.presentation.util.NetworkMonitor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

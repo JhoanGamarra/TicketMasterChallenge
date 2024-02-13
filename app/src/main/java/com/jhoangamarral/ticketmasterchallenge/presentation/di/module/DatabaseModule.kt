@@ -2,9 +2,9 @@ package com.jhoangamarral.ticketmasterchallenge.presentation.di.module
 
 import android.content.Context
 import androidx.room.Room
-import com.jhoangamarral.ticketmasterchallenge.data.db.events.EventDao
-import com.jhoangamarral.ticketmasterchallenge.data.db.events.EventDatabase
-import com.jhoangamarral.ticketmasterchallenge.data.db.events.EventRemoteKeyDao
+import com.jhoangamarral.data.events.EventDao
+import com.jhoangamarral.data.events.EventDatabase
+import com.jhoangamarral.data.events.EventRemoteKeyDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,7 +28,7 @@ class DatabaseModule {
     }
 
     @Provides
-    fun provideMovieRemoteKeyDao(eventDatabase: EventDatabase): EventRemoteKeyDao {
+    fun provideEventRemoteKeyDao(eventDatabase: EventDatabase): EventRemoteKeyDao {
         return eventDatabase.eventRemoteKeysDao()
     }
 }

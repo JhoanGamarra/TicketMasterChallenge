@@ -1,9 +1,9 @@
 package com.jhoangamarral.ticketmasterchallenge.presentation.di.module
 
 import android.content.Context
-import com.jhoangamarral.ticketmasterchallenge.data.util.DiskExecutor
-import com.jhoangamarral.ticketmasterchallenge.data.util.DispatchersProvider
-import com.jhoangamarral.ticketmasterchallenge.data.util.DispatchersProviderImpl
+import com.jhoangamarral.data.util.DiskExecutor
+import com.jhoangamarral.data.util.DispatchersProvider
+import com.jhoangamarral.data.util.DispatchersProviderImpl
 import com.jhoangamarral.ticketmasterchallenge.presentation.util.NetworkMonitor
 import dagger.Module
 import dagger.Provides

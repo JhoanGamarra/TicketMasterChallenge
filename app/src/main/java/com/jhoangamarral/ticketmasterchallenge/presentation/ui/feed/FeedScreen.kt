@@ -18,7 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.jhoangamarral.ticketmasterchallenge.presentation.LocalNavControllerProvider
+import com.jhoangamarral.ticketmasterchallenge.presentation.navigation.LocalNavControllerProvider
 import com.jhoangamarral.ticketmasterchallenge.presentation.entities.EventListItem
 import com.jhoangamarral.ticketmasterchallenge.presentation.navigation.Page
 import com.jhoangamarral.ticketmasterchallenge.presentation.ui.components.EventList
@@ -41,7 +41,6 @@ fun NavGraphBuilder.feedScreen() = composable(route = Page.Feed.route) {
     FeedScreen(eventsPaging, uiState)
 
 }
-
 
 @Composable
 private fun FeedScreen(

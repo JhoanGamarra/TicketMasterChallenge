@@ -2,7 +2,7 @@ package com.jhoangamarral.ticketmasterchallenge.presentation.di.module
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.jhoangamarral.ticketmasterchallenge.BuildConfig
-import com.jhoangamarral.ticketmasterchallenge.data.api.EventApi
+import com.jhoangamarral.data.api.EventApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,7 +36,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideMovieApi(retrofit: Retrofit): EventApi {
+    fun provideEventApi(retrofit: Retrofit): EventApi {
         return retrofit.create(EventApi::class.java)
     }
 
