@@ -98,14 +98,14 @@ fun SearchScreen(
 @Composable
 fun SearchScreenPreview() {
     val eventItems: List<EventListItem> = listOf(
-        EventListItem.Event(
+        EventListItem(
             "1",
             "Title 1",
             "https://i.stack.imgur.com/lDFzt.jpg",
             "Los Angeles",
             "09/10/24"
         ),
-        EventListItem.Event(
+        EventListItem(
             "2",
             "Title 2",
             "https://i.stack.imgur.com/lDFzt.jpg",

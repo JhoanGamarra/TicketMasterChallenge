@@ -16,9 +16,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val searchEvents: com.jhoangamarral.domain.usecases.SearchEvents,
+    private val searchEvents: SearchEvents,
     private val savedStateHandle: SavedStateHandle,
-    dispatchers: com.jhoangamarral.data.util.DispatchersProvider
+    dispatchers: DispatchersProvider
 ) : BaseViewModel(dispatchers) {
 
     data class SearchUiState(

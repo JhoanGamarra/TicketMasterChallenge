@@ -17,7 +17,6 @@ interface EventApi {
     suspend fun search(
         @Query("keyword") query: String,
         @Query("page") page: Int,
-        @Query("limit") limit: Int,
         @Query("apikey") apikey: String ="DW0E98NrxUIfDDtNN7ijruVSm60ryFLX"
     ): EventRequestApi
 }

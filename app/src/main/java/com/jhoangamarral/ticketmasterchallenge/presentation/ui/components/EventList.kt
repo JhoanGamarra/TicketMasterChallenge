@@ -2,13 +2,9 @@ package com.jhoangamarral.ticketmasterchallenge.presentation.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.*
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -28,7 +24,6 @@ import androidx.paging.compose.LazyPagingItems
 import coil.compose.SubcomposeAsyncImage
 import com.jhoangamarral.ticketmasterchallenge.R
 import com.jhoangamarral.ticketmasterchallenge.presentation.entities.EventListItem
-import com.jhoangamarral.ticketmasterchallenge.presentation.ui.theme.colors
 import com.jhoangamarral.ticketmasterchallenge.presentation.util.PreviewContainer
 
 @Composable
@@ -44,7 +39,7 @@ fun EventList(
     ) {
         items(events.itemCount) { index ->
             when (val event = events[index]) {
-                is EventListItem.Event -> EventItem(event, imageSize)
+                is EventListItem -> EventItem(event, imageSize)
                 else -> Loader()
             }
         }
@@ -53,7 +48,7 @@ fun EventList(
 
 @Composable
 private fun EventItem(
-    event: EventListItem.Event,
+    event: EventListItem,
     imageSize: ImageSize,
 ) {
     Card(
@@ -137,7 +132,7 @@ private fun SeparatorAndEventItem() {
             Column {
                 Row {
                     EventItem(
-                        EventListItem.Event(
+                        EventListItem(
                             "1",
                             "Title 1",
                             "https://i.stack.imgur.com/lDFzt.jpg",
@@ -146,7 +141,7 @@ private fun SeparatorAndEventItem() {
                         ), imageSize
                     )
                     EventItem(
-                        EventListItem.Event(
+                        EventListItem(
                             "1",
                             "Title 1",
                             "https://i.stack.imgur.com/lDFzt.jpg",
@@ -155,7 +150,7 @@ private fun SeparatorAndEventItem() {
                         ), imageSize
                     )
                     EventItem(
-                        EventListItem.Event(
+                        EventListItem(
                             "1",
                             "Title 1",
                             "https://i.stack.imgur.com/lDFzt.jpg",
@@ -164,7 +159,7 @@ private fun SeparatorAndEventItem() {
                         ), imageSize
                     )
                     EventItem(
-                        EventListItem.Event(
+                        EventListItem(
                             "1",
                             "Title 1",
                             "https://i.stack.imgur.com/lDFzt.jpg",

@@ -15,7 +15,7 @@ class SearchEventPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, EventEntity> {
         val page = params.key ?: STARTING_PAGE_INDEX
 
-        return remote.search(query, page, params.loadSize).getResult({
+        return remote.search(query, page).getResult({
             LoadResult.Page(
                 data = it.data,
                 prevKey = if (page == STARTING_PAGE_INDEX) null else page - 1,

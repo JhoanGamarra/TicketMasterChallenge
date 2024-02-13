@@ -13,7 +13,7 @@ interface EventDataSource {
 
     interface Remote {
         suspend fun getEvents(page: Int, limit: Int): Result<List<EventEntity>>
-        suspend fun search(query: String, page: Int, limit: Int): Result<List<EventEntity>>
+        suspend fun search(query: String, page: Int): Result<List<EventEntity>>
     }
 
     interface Local {

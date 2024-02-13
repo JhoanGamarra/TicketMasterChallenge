@@ -30,7 +30,7 @@ internal class FeedViewModelTest : BaseViewModelTest() {
 
     private lateinit var viewModel: FeedViewModel
 
-    private val events = listOf(EventListItem.Event("1234", "title 1", "imageUrl", "Sphere" , "09/10/18"))
+    private val events = listOf(EventListItem("1234", "title 1", "imageUrl", "Sphere" , "09/10/18"))
 
     private val pagingData: Flow<PagingData<EventListItem>> = flowOf(PagingData.from(events))
 
@@ -67,7 +67,6 @@ internal class FeedViewModelTest : BaseViewModelTest() {
     fun onLoadStateUpdate_onSuccess_hideLoadingAndShowEvents() = runTest {
         viewModel.onLoadStateUpdate(getLoadState(LoadState.NotLoading(true)))
 
-        // TODO - test events flow
         viewModel.uiState.test {
             val emission: FeedViewModel.FeedUiState = awaitItem()
             assertThat(emission.showLoading).isFalse()
